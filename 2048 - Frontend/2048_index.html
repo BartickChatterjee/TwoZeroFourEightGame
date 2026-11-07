@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game</title>
+    <link rel="stylesheet" href="2048_style.css">
+    <!-- <style>
+        
+    </style> -->
+</head>
+
+<body>
+    <div class="nameScreen">
+        <div class="namePopUp">
+            <input type="text" class="nameInput" placeholder="Enter your name here" />
+            <button class="nameButton" onClick="acceptName()">Done</button>
+        </div>
+    </div>
+    <button class="menuButton" id="menuButton" onclick="toggleMenu()">
+        <div class="menuIcon"></div>
+    </button>
+    <div class="menuScreen" id="menuScreen">
+        <div class="milestoneSelector">
+            <div class="milestoneOptions">
+                <!-- <label class="milestoneBox">
+                    <input type="radio" id="milestone8" name="milestone" value="8" onchange="updateLeaderboard()"
+                        checked>
+                    <span>8</span>
+                </label>
+                <label class="milestoneBox">
+                    <input type="radio" id="milestone16" name="milestone" value="16" onchange="updateLeaderboard()">
+                    <span>16</span>
+                </label> -->
+                <label class="milestoneBox">
+                    <input type="radio" id="milestone32" name="milestone" value="32" onchange="updateLeaderboard()" checked>
+                    <span>32</span>
+                </label>
+                <label class="milestoneBox">
+                    <input type="radio" id="milestone64" name="milestone" value="64" onchange="updateLeaderboard()">
+                    <span>64</span>
+                </label>
+                <label class="milestoneBox">
+                    <input type="radio" id="milestone128" name="milestone" value="128" onchange="updateLeaderboard()">
+                    <span>128</span>
+                </label>
+                <label class="milestoneBox">
+                    <input type="radio" id="milestone256" name="milestone" value="256" onchange="updateLeaderboard()">
+                    <span>256</span>
+                </label>
+                <label class="milestoneBox">
+                    <input type="radio" id="milestone512" name="milestone" value="512" onchange="updateLeaderboard()">
+                    <span>512</span>
+                </label>
+                <label class="milestoneBox">
+                    <input type="radio" id="milestone1024" name="milestone" value="1024" onchange="updateLeaderboard()">
+                    <span>1024</span>
+                </label>
+                <label class="milestoneBox">
+                    <input type="radio" id="milestone2048" name="milestone" value="2048" onchange="updateLeaderboard()">
+                    <span>2048</span>
+                </label>
+            </div>
+        </div>
+        <div class="tableContainer">
+            <table class="leaderboard" id="leaderboard">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Time Taken</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="no-data-message">
+                        <td colspan=3>No Highscores!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="playSection">
+        <div class="fancySquare">
+            <div class="playboard" id="playboard">
+                <div class="hor-line"></div>
+                <div class="hor-line"></div>
+                <div class="hor-line"></div>
+                <div class="ver-line"></div>
+                <div class="ver-line"></div>
+                <div class="ver-line"></div>
+            </div>
+        </div>
+        <div class="controlBoardContainer">
+            <div class="controlBoard">
+                <div class="spacer"></div>
+                <button class="controlButton" id="up">
+                    <svg viewBox="0 0 100 100">
+                        <polygon points="50,0 6.6987,75 93.3013,75" />
+                    </svg>
+                </button>
+                <div class="spacer"></div>
+                <button class="controlButton" id="left">
+                    <svg viewBox="0 0 100 100">
+                        <polygon points="0,50 75,93.3013 75,6.6987" />
+                    </svg>
+                </button>
+                <div class="spacer"></div>
+                <button class="controlButton" id="right">
+                    <svg viewBox="0 0 100 100">
+                        <polygon points="100,50 25,6.6987 25,93.3013" />
+                    </svg>
+                </button>
+                <div class="spacer"></div>
+                <button class="controlButton" id="down">
+                    <svg viewBox="0 0 100 100">
+                        <polygon points="50,100 93.3013,25 6.6987,25" />
+                    </svg>
+                </button>
+                <div class="spacer"></div>
+            </div>
+        </div>
+    </div>
+    <div class="scoreboard">
+        <div class="timeEnclosure">00:00:00:000</div>
+        <div class="scoreEnclosure">
+            <ul id="milestones">
+                <!-- <li>00:00:00:00</li>
+                <li>00:00:00:01</li>
+                <li>00:00:00:02</li>
+                <li>00:00:00:03</li>
+                <li>00:00:00:04</li>
+                <li>00:00:00:05</li>
+                <li>00:00:00:06</li>
+                <li>00:00:00:07</li>
+                <li>00:00:00:08</li>
+                <li>00:00:00:09</li>
+                <li>00:00:00:10</li>
+                <li>00:00:00:11</li> -->
+            </ul>
+        </div>
+    </div>
+    <script src="2048_script.js"></script>
+    <!-- <script>
+        
+    </script> -->
+    <script>
+    </script>
+</body>
+
+</html>

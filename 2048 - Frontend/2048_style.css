@@ -1,0 +1,609 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Consolas;
+}
+
+body {
+    background-color: rgb(178, 178, 255);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    transition: padding-right ease-in-out 0.3s;
+}
+
+.add-padding {
+    padding-right: 820px;
+}
+
+.menuButton {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    height: 72px;
+    width: 72px;
+    outline: 0 !important;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(207, 67, 67);
+    font-weight: bold;
+    font-size: 1.2vw;
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 0.6vh 1vh rgba(0, 0, 0, 0.6);
+    transition: box-shadow ease-in-out 0.1s;
+    z-index: 2;
+}
+
+.menuButton:hover {
+    box-shadow: 0 1.2vh 2vh rgba(0, 0, 0, 0.5);
+}
+
+.menuButton:active {
+    box-shadow: 0 0.6vh 1vh rgba(0, 0, 0, 0.6);
+}
+
+.menuIcon {
+    height: 4px;
+    width: 32px;
+    background-color: white;
+    box-shadow: 0px 10px white, 0px 20px white;
+    transform: translateY(-10px);
+}
+
+.nameScreen {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(32px);
+    /* visibility: hidden; */
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: backdrop-filter ease-in-out 0.5s, background-color ease-in-out 0.5s;
+}
+
+.nameScreenBlurOut {
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+}
+
+.namePopUp {
+    background-color: rgb(207, 67, 67);
+    width: 40vw;
+    height: 32vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* visibility: hidden; */
+}
+
+.nameInput {
+    width: 36vw;
+    height: 6vh;
+    background-color: transparent;
+    border-radius: 0;
+    border: 0;
+    outline: 0 !important;
+    padding-left: 1vw;
+    font-weight: bold;
+    font-size: 1.2vw;
+    color: white;
+    transition: all ease-in 0.2s;
+}
+
+.textSupport {
+    height: 0.4vh;
+    width: 100%;
+}
+
+.nameInput:focus {
+    background-color: rgb(180, 67, 67);
+}
+
+.nameButton {
+    background-color: rgb(207, 67, 67);
+    height: 6vh;
+    width: 8vw;
+    font-weight: bold;
+    font-size: 1.2vw;
+    color: white;
+    border: none;
+    border-radius: 1vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.6);
+    transition: box-shadow var(--global-transition-time);
+    transition: all ease-in 0.1s;
+}
+
+.nameButton:hover {
+    box-shadow: 0 0.8vh 1.6vh rgba(0, 0, 0, 0.5);
+}
+
+.nameButton:active {
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.6);
+}
+
+.nameInput::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+
+.scoreboard {
+    background-color: rgb(207, 67, 67);
+    /*Test color on this*/
+    height: 540px;
+    width: 360px;
+}
+
+.timeEnclosure {
+    /* background-color: blue; */
+    border: 5px solid white;
+    height: 100px;
+    width: 360px;
+    font-family: consolas;
+    font-size: 48px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scoreEnclosure {
+    /* background-color: yellow; */
+    display: inline-block;
+    overflow: auto;
+    height: 440px;
+    width: 360px;
+    font-family: consolas;
+    font-size: 36px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.scoreEnclosure::-webkit-scrollbar {
+    display: none;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    list-style-position: inside;
+    margin-bottom: 10px;
+    font-size: 32px;
+    font-family: consolas;
+}
+
+.playSection {
+    /* background-color: yellow; */
+    height: 100vh;
+    /* width: 50vw; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.controlBoardContainer {
+    /* background: blue; */
+    border-radius: 12px;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controlBoard {
+    /* background-color: blue; */
+    height: fit-content;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, 90px);
+    grid-template-rows: repeat(3, 90px);
+    gap: 10px;
+}
+
+.spacer {
+    width: 90px;
+    height: 90px;
+}
+
+.controlButton {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(207, 67, 67);
+    /* Material primary */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.1s;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    /* removes grey highlight on mobile */
+    touch-action: none; /* <- allow reliable pointerdown handling on touch devices */
+}
+
+.controlButton:hover {
+    background-color: rgb(180, 67, 67);
+    /* darker primary */
+}
+
+.controlButton:active {
+    background-color: rgb(140, 67, 67);
+}
+
+.controlButton:focus {
+    outline: none;
+}
+
+.controlButton svg {
+    width: 60%;
+    height: 60%;
+    fill: #fff;
+    display: block;
+    pointer-events: none;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate {
+    animation: zoom 0.25s ease-in-out;
+}
+
+.playboard {
+    background-color: rgb(255, 250, 250);
+    /*Test color on this*/
+    height: 412px;
+    width: 412px;
+    /* border: 12px solid rgb(122, 122, 255); */
+}
+
+.fancySquare {
+    height: 444px;
+    width: 444px;
+    /* border: 12px solid rgb(122, 122, 255); */
+    border: 12px solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    padding-top: 4px;
+    padding-left: 4px;
+}
+
+.ver-line {
+    position: absolute;
+    background-color: rgb(178, 178, 255);
+    height: 412px;
+    width: 4px;
+    margin-left: 100px;
+    box-shadow: 104px 0px rgb(178, 178, 255), 208px 0px rgb(178, 178, 255);
+}
+
+.hor-line {
+    position: absolute;
+    background-color: rgb(178, 178, 255);
+    height: 4px;
+    width: 412px;
+    margin-top: 100px;
+    box-shadow: 0px 104px 0px rgb(178, 178, 255), 0px 208px 0px rgb(178, 178, 255);
+}
+
+.number-box {
+    position: relative;
+    border: 2px solid rgb(71, 71, 71);
+    box-sizing: border-box;
+    height: 100px;
+    width: 100px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.menuScreen {
+    position: absolute;
+    right: -820px;
+    width: 820px;
+    height: 100vh;
+    background-color: #FFCDD2;
+    /* Light red accent background */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for elegance */
+    border-radius: 8px;
+    /* Rounded corners */
+    transition: right ease-in-out 0.3s;
+    z-index: 1;
+}
+
+.menu-shift {
+    right: 0px;
+}
+
+.milestoneSelector {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.milestoneSelector label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #B71C1C;
+    /* Dark red for text */
+    display: block;
+    margin-bottom: 10px;
+}
+
+.milestoneSelector input[type="radio"] {
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    outline: none;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.milestoneSelector input[type="radio"]:checked {
+    background-color: #4CAF50;
+    border-color: #388E3C;
+    color: white;
+}
+
+.milestoneSelector label[for] {
+    font-size: 24px;
+    color: #555;
+    cursor: pointer;
+    margin-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.milestoneOptions {
+    display: flex;
+    justify-content: space-between;
+    /* Spread boxes evenly across one line */
+    width: 90%;
+    /* Match the width of the leaderboard */
+    margin: 0 auto;
+    /* Center the selector panel */
+}
+
+.milestoneBox {
+    flex: 1;
+    /* Ensure boxes stretch evenly */
+    max-width: 150px;
+    /* Limit maximum width for each box */
+    height: 50px;
+    /* Reduced height for rectangular shape */
+    border: none;
+    /* Removed borders */
+    border-radius: 0;
+    /* Remove rounded corners for adjacent boxes */
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    color: #E57373;
+    /* Medium red text */
+    background-color: #FFEBEE;
+    /* Light red background for unselected boxes */
+    transition: background-color border-color 0.8s ease-in-out;
+}
+
+.milestoneBox:first-child {
+    border-top-left-radius: 8px;
+    /* Rounded top-left corner */
+    border-bottom-left-radius: 8px;
+    /* Rounded bottom-left corner */
+}
+
+.milestoneBox:last-child {
+    border-top-right-radius: 8px;
+    /* Rounded top-right corner */
+    border-bottom-right-radius: 8px;
+    /* Rounded bottom-right corner */
+}
+
+.milestoneBox:first-child input[type="radio"]:checked+span {
+    border-top-left-radius: 8px;
+    /* Keep rounded top-left corner when selected */
+    border-bottom-left-radius: 8px;
+    /* Keep rounded bottom-left corner when selected */
+}
+
+.milestoneBox:last-child input[type="radio"]:checked+span {
+    border-top-right-radius: 8px;
+    /* Keep rounded top-right corner when selected */
+    border-bottom-right-radius: 8px;
+    /* Keep rounded bottom-right corner when selected */
+}
+
+.milestoneBox input[type="radio"] {
+    appearance: none;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.milestoneBox input[type="radio"]:checked+span {
+    background-color: #E57373;
+    /* Medium red for selected state */
+    color: white;
+    border-color: #B71C1C;
+    /* Dark red border for selected state */
+}
+
+.milestoneBox span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+    /* Adjusted for reduced height */
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.tableContainer {
+    overflow-y: auto;
+    max-height: 700px;
+    /* Adjust height to show 15 entries */
+}
+
+.leaderboard {
+    width: 90%;
+    /* Ensure the leaderboard and selector panel have the same width */
+    margin: 20px auto;
+    /* Centered table */
+    border-collapse: collapse;
+    overflow: hidden;
+    /* Prevent overflow of rounded corners */
+    font-size: 20px;
+}
+
+.leaderboard th,
+.leaderboard td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    /* Adjusted padding for consistency */
+    text-align: center;
+}
+
+.leaderboard th {
+    background-color: #E57373;
+    /* Medium red for header */
+    color: white;
+    font-weight: bold;
+}
+
+.leaderboard tr:nth-child(even) {
+    background-color: #FFEBEE;
+    /* Light red background for alternate rows */
+}
+
+.leaderboard thead,
+.leaderboard tbody {
+    display: table;
+    /* Ensure headers align with rows */
+    width: 100%;
+    /* Match the width of the table */
+    table-layout: fixed;
+    /* Ensure consistent column widths */
+}
+
+.leaderboard tbody tr {
+    display: table;
+    /* Ensure rows align with headers */
+    width: 100%;
+    /* Match the width of the table */
+    table-layout: fixed;
+    /* Ensure consistent column widths */
+}
+
+.leaderboard th:first-child,
+.leaderboard td:first-child {
+    border-left: 0;
+}
+
+.leaderboard th:last-child,
+.leaderboard td:last-child {
+    border-right: 0;
+}
+
+.leaderboard tr:first-child th:first-child {
+    border-top-left-radius: 8px;
+    /* Rounded top-left corner */
+}
+
+.leaderboard tr:first-child th:last-child {
+    border-top-right-radius: 8px;
+    /* Rounded top-right corner */
+}
+
+.leaderboard tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+    /* Rounded bottom-left corner */
+}
+
+.leaderboard tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+    /* Rounded bottom-right corner */
+}
+
+.leaderboard tbody:empty::before {
+    content: "No Highscores";
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #E57373;
+    /* Medium red for the message */
+    padding: 20px;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFEBEE;
+    /* Light red background */
+    border-radius: 8px;
+    /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #E57373;
+    /* Medium red for scrollbar thumb */
+    border-radius: 8px;
+    /* Rounded corners */
+    border: 3px solid #FFEBEE;
+    /* Padding around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #B71C1C;
+    /* Dark red for hover state */
+}
